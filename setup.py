@@ -1,11 +1,12 @@
-from setuptools import setup
+import setuptools
 
-setup(name='pyCCDA',
+setuptools.setup(name='pyCCDA',
       version='0.0.1',
       description='CCDA Parser',
       url='https://github.com/MemoirHealth/ccda-parser',
       author='Mansoor Alam',
       author_email='me@mansooralam.com',
       license='MIT',
-      packages=['pyCCDA'],
+      packages=setuptools.find_packages(),
+      install_requires=["bluebutton"],
       zip_safe=False)

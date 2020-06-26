@@ -6,10 +6,9 @@ Created on Mon Jul  2 21:56:30 2018
 @authors: mansooralam, yanjingwang
 """
 
-from . import core
-from . import documents
-import documents.ccda
-import parsers.ccda
+import pyCCDA.core
+import pyCCDA.documents.ccda
+import pyCCDA.parsers.ccda
 
 
 class CCDA(object):
@@ -19,7 +18,7 @@ class CCDA(object):
         if options is None:
             opts = dict()
 
-        parsed_data = core.parse_data(source)
+        parsed_data = pyCCDA.core.parse_data(source)
 
         if 'parser' in opts:
             parsed_document = opts['parser']()
@@ -32,8 +31,8 @@ class CCDA(object):
                 # parsed_document = parsers.C32.run(parsed_data)
                 pass
             elif 'ccda' == type:
-                parsed_data = documents.ccda.process(parsed_data)
-                parsed_document = parsers.ccda.run(parsed_data)
+                parsed_data = pyCCDA.documents.ccda.process(parsed_data)
+                parsed_document = pyCCDA.parsers.ccda.run(parsed_data)
             elif 'json' == type:
                 # TODO: add support for JSON
                 pass
